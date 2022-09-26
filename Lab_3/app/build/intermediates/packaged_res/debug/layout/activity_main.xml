@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/absoluteTW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Absolute: "
+        android:textSize="24sp"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameTW"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/absoluteTW" />
+
+    <TextView
+        android:id="@+id/pathTW"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Path: "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTW" />
+
+    <TextView
+        android:id="@+id/readWriteTW"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read/Write: "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pathTW" />
+
+    <TextView
+        android:id="@+id/externalTW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="External: "
+        android:padding="10dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/readWriteTW" />
+
+    <Button
+        android:id="@+id/GETFILESDIR_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickFilesDir"
+        android:text="GETFILESDIR"
+        app:layout_constraintBottom_toTopOf="@+id/GETCACHEDIR_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/GETCACHEDIR_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickCacheDir"
+        android:text="GETCACHEDIR"
+        app:layout_constraintBottom_toTopOf="@+id/GETEXTERNALFILESDIR_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/GETEXTERNALFILESDIR_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickExtFileDir"
+        android:text="GETEXTERNALFILESDIR"
+        app:layout_constraintBottom_toTopOf="@+id/GETEXTERNALCACHEDIR_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/GETEXTERNALCACHEDIR_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickExtCacheDir"
+        android:text="GETEXTERNALCACHEDIR"
+        app:layout_constraintBottom_toTopOf="@+id/GETEXTERNALSTORAGEDIRECTORY_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/GETEXTERNALSTORAGEDIRECTORY_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickExtStorageDir"
+        android:text="GETEXTERNALSTORAGEDIRECTORY"
+        app:layout_constraintBottom_toTopOf="@+id/GETEXTERNALSTORAGEPUBLICDIRECTORY_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/GETEXTERNALSTORAGEPUBLICDIRECTORY_BTN"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:onClick="clickExtStoragePublicDir"
+        android:text="GETEXTERNALSTORAGEPUBLICDIRECTORY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
