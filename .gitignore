@@ -1,4 +1,4 @@
 TT/
-.gradle/
-.idea/
-gradle/
+*/.gradle/
+*/.idea/
+*/gradle/
