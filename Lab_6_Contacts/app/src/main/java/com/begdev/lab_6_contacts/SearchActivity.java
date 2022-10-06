@@ -85,6 +85,22 @@ public class SearchActivity extends AppCompatActivity {
         e.printStackTrace();
         }
     }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        try {
+            Gson gson = new Gson();
+            File publicFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), publicFileName);
+            File privateFile = new File(super.getFilesDir(), privateFileName);
+            BufferedReader bfr = new BufferedReader(new FileReader(publicFile));
+            this.publicArray = gson.fromJson(bfr.readLine(), new TypeToken<ArrayList<Person>>(){}.getType());
+            bfr = new BufferedReader(new FileReader(privateFile));
+            privateArray = gson.fromJson(bfr.readLine(), new TypeToken<ArrayList<Person>>(){}.getType());
+            bfr.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     public void backBtnClick(View view){
         Intent mainIntent = new Intent(this, MainActivity.class);

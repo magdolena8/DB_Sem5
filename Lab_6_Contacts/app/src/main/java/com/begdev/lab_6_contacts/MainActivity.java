@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     FileWriter fw = new FileWriter(f, false);
                     fw.write(gson.toJson(new ArrayList<Person>(Arrays.asList(person))));
                     fw.close();
+                    cleanInputUI();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     fw.write(gson.toJson(arrayPerson));
                     bfr.close();
                     fw.close();
+                    cleanInputUI();
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     FileWriter fw = new FileWriter(f, false);   //rewrite
                     fw.write(gson.toJson(new ArrayList<Person>(Arrays.asList(person))));
                     fw.close();
+                    cleanInputUI();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     fw.write(gson.toJson(arrayPerson));
                     bfr.close();
                     fw.close();
-
+                    cleanInputUI();
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -122,9 +125,14 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void cleanInputUI(){
+        this.nameTE.setText("");
+        this.surnameTE.setText("");
+        this.phoneTE.setText("");
+    }
     public void searchBtnClick(View view) {
 
-        Intent searchInten = new Intent(this, SearchActivity.class);
-        startActivity(searchInten);
+        Intent searchIntent = new Intent(this, SearchActivity.class);
+        startActivity(searchIntent);
     }
 }
