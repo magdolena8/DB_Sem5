@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menubtn_addstudent"
+        android:title="Добавить Студента" />
+
+    <item
+        android:id="@+id/menubtn_addgroup"
+        android:title="Добавить Группу" />
+
+    <item
+        android:id="@+id/menubtn_list"
+        android:title="Списки" />
+
+</menu>
