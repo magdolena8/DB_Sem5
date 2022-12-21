@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentsSingleFragment">
+
+    <EditText
+            android:id="@+id/etIdGroupGetSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Group ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etIdStudentGetSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="Student ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIdGroupGetSingleStudent" />
+
+    <EditText
+        android:id="@+id/etIdStudentDeleteSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:hint="Student ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddStudent" />
+
+    <EditText
+        android:id="@+id/etNameStudentUpdateSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:hint="New name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIdStudentUpdateSingleStudent" />
+
+    <EditText
+        android:id="@+id/etIdStudentUpdateSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:hint="Student ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIdStudentDeleteSingleStudent" />
+
+    <EditText
+        android:id="@+id/etNameStudentAddSingleStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:hint="Name Student"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twResultGetSingleStudent" />
+
+    <EditText
+        android:id="@+id/etBirthdateStudentAddSingleStudent"
+        android:layout_width="123dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:hint="Birthdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNameStudentAddSingleStudent" />
+
+    <EditText
+        android:id="@+id/etAddressStudentAddSingleStudent"
+        android:layout_width="113dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:hint="Address"
+        app:layout_constraintStart_toEndOf="@+id/etBirthdateStudentAddSingleStudent"
+        app:layout_constraintTop_toBottomOf="@+id/etIdGroupStudentAddSingleStudent" />
+
+    <EditText
+        android:id="@+id/etIdGroupStudentAddSingleStudent"
+        android:layout_width="114dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:hint="Group ID"
+        app:layout_constraintStart_toEndOf="@+id/etNameStudentAddSingleStudent"
+        app:layout_constraintTop_toBottomOf="@+id/twResultGetSingleStudent" />
+
+    <Button
+        android:id="@+id/btnGetStudentInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="32dp"
+        android:text="get student"
+        app:layout_constraintStart_toEndOf="@+id/etIdStudentGetSingleStudent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddStudent"
+        android:layout_width="113dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="40dp"
+        android:text="Add student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twResultGetSingleStudent" />
+
+    <Button
+        android:id="@+id/btnDeleteStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:text="Delete student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddStudent" />
+
+    <Button
+        android:id="@+id/btnUpdateStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Update student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toEndOf="@+id/etIdStudentUpdateSingleStudent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDeleteStudent" />
+
+    <TextView
+        android:id="@+id/twResultGetSingleStudent"
+        android:layout_width="360dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIdStudentGetSingleStudent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

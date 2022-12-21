@@ -3,6 +3,7 @@ package com.begdev.lab_11;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,6 +12,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "Lab11.db";
@@ -40,7 +42,12 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
+    @Override
+    public void onConfigure(SQLiteDatabase db){
+        db.setForeignKeyConstraintsEnabled(true);
+    }
     private void fillTables(SQLiteDatabase sqLiteDatabase){
+        sqLiteDatabase.execSQL("pragma foreign_keys = on;");
         sqLiteDatabase.execSQL(DBContract.SQL_FILL_FACULTY);
         sqLiteDatabase.execSQL(DBContract.SQL_FILL_SUBJECT);
         sqLiteDatabase.execSQL(DBContract.SQL_FILL_GROUPS);
@@ -51,9 +58,19 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DBContract.createMarkIndex);
         sqLiteDatabase.execSQL(DBContract.createViewSubjectQuery);
 
-        sqLiteDatabase.execSQL(DBContract.createTriggerInsertStudent);
-        sqLiteDatabase.execSQL(DBContract.createTriggerDeleteStudent);
-        sqLiteDatabase.execSQL(DBContract.createTriggerUpdateSubjectView);
+
+        List<String> idList = new ArrayList<>();
+        idList.add("1");
+        idList.add("4");
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT S._id, S.NAME, (SELECT AVG(P.MARK) FROM PROGRESS P WHERE P.IDSTUDENT = S._id) FROM STUDENT S WHERE S.IDGROUP=? AND S._id=?", new String[]{idList.get(0), idList.get(1)});
+        cursor.moveToNext();
+        Log.d("CREATE TABLES", cursor.getString(1));
+
+//        sqLiteDatabase.execSQL(DBContract.createTriggerInsertStudent);
+//        sqLiteDatabase.execSQL(DBContract.createTriggerDeleteStudent);
+//        sqLiteDatabase.execSQL(DBContract.createTriggerUpdateSubjectView);
+//        int result = sqLiteDatabase.delete("GROUPS",null,null);
+
     }
 
     public ArrayList<Integer> getGroupsList(){
@@ -120,7 +137,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean deleteStudent(Integer idStudent){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         try{
             db.delete(DBContract.DBStudentsTable.TABLE_NAME, "_id = "+ idStudent.toString(),null);
         }
